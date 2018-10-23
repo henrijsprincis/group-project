@@ -168,7 +168,6 @@ print ("Your Score is " + score + "/10")
 return score
         
 # This is the entry point of our program
-test()
 def main():
 
     # Main game loop
