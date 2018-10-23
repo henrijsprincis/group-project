@@ -1,71 +1,47 @@
-item_id = {
-    "id": "id",
-
-    "name": "id card",
-
-    "description":
-    """You new shiny student ID card. Expires 1 June 2017.
-You wonder why they have printed a suicide hotline number on it?...""",
-
-    "mass": 0.1
-}
-
-item_laptop = {
-    "id": "laptop",
-
-    "name": "laptop",
-
-    "description":
-    "It has seen better days. At least it has a WiFi card!",
-
-    "mass": 0.6
-}
-
-item_money = {
-    "id": "money",
-
-    "name": "money",
-
-    "description":
-    "This wad of cash is barely enough to pay your tuition fees.",
-
-    "mass": 0.1
-}
-
-item_biscuits = {
-    "id": "biscuits",
-
-    "name": "a pack of biscuits",
-
-    "description": "A pack of biscuits.",
-
-    "mass": 0.3
-}
-
-item_pen = {
-    "id": "pen",
+item_textbook = {
+    "id": "textbook",
     
-    "name": "a pen",
+    "name": "Think Python Textbook",
 
-    "description": "A basic ballpoint pen.",
-
-    "mass": 0.01
+    "description": "This textbook has everything you need to know about python.",
 }
 
-item_handbook = {
-    "id": "handbook",
-    
-    "name": "a student handbook",
+item_paracetemol = {
+    "id": "Paracetemol",
 
-    "description": "This student handbook explains everything. Seriously.",
+    "name": "Paracetemol",
 
-    "mass": 2.5
+    "description" : ""
+
 }
+
+item_coffee = {
+    "id": "coffee"
+
+    "name": "Had coffee"
+
+    "description": "Gives enerygy and makes you more alert"
+}
+
+item_notes = {
+    "id" : "notes"
+
+    "name" : "Study Notes"
+
+    "description": ""
+
+item_key = {
+    "id":"key"
+
+    "name": "Key"
+
+    "description": "Found in the library"
+}
+ 
 items_all = {
-    "id": item_id,
-    "laptop": item_laptop,
-    "money": item_money,
-    "biscuits": item_biscuits,
-    "pen": item_pen,
-    "handbook": item_handbook
+    "coffee": item_coffee,
+    "paracetemol": item_paracetemol,
+    "textbook": item_textbook
+    "notes": item_notes
+    "key": item_key
 }
