@@ -11,6 +11,13 @@ def is_winning():
 def change_dialogue(user_choice):
     global current_narrative
     global dialogue
+    global current_narrative
+    #print(current_narrative["numbers"][str(user_choice)] + "THIS CODE RAN!!!")
+    if(current_narrative["numbers"][str(user_choice)].find("take") != -1):
+        print("Very inapropriate")
+        user_input = current_narrative["numbers"][str(user_choice)]
+        execute_take(user_input[1])
+        return
     current_narrative = dialogue[current_narrative["numbers"][str(user_choice)]]
 def list_of_items(items):
     ret = ""
@@ -34,7 +41,10 @@ def print_menu(dialogue_options, room_items, inv_items):
     # Iterate over available exits
     for option in dialogue_options:
         #current narrative numbers (Option = 1)
-        print("press " + str(option) + dialogue[dialogue_options[option]]["name"])
+        if(dialogue_options[option].find("take") == -1):
+            print("press " + str(option) + " " + dialogue[dialogue_options[option]]["name"])
+        else:
+            print("press " + str(option) + "to " + dialogue_options[option])
     for item in room_items:
         print("TAKE " + item["id"] + " to take " + item["name"])
     for item in inv_items:
@@ -57,6 +67,7 @@ def execute_go(direction):
 def execute_take(item_id):
     i = 0
     total_sum_of_items = 0
+    print("TAKE RAN")
     try:
         actual_item = items_all[item_id]
     except:
@@ -99,7 +110,7 @@ def execute_command(command):
         return
     try:
         user_choice = int(command[0])
-        #print(str(user_choice) + " is what the user chose")
+    #print(str(user_choice) + " is what the user chose")
         change_dialogue(user_choice)
     except:
         if command[0] == "go":
