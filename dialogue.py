@@ -27,7 +27,7 @@ dialogue_bathroom = {
 dialogue_shower = {
     "name":"Shower",
     "description" : "You've taken a shower and change your clothes, do you want to bru sh your teeth",
-    "numbers": "1":"dialogue_brush_teeth", "2":"dialogue_pracetemol"
+    "numbers": "1":"dialogue_brush_teeth", "2":"dialogue_pracetemol",
     "items": []
 }
 
@@ -41,7 +41,7 @@ dialogue_brush_teeth = {
 dialogue_paracetemol = {
     "name":"Shower",
     "description" : "You've taken paracetemol to help with headache",
-    "numbers": {"1":"dialogue_kitchen", "2":"dialogue_jason", "3":"dialogue_library"}
+    "numbers": {"1":"dialogue_kitchen", "2":"dialogue_jason", "3":"dialogue_library"},
     "items": []
 }
 
