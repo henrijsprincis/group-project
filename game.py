@@ -5,6 +5,7 @@ from player import *
 from items import *
 from gameparser import *
 from dialogue import *
+from test import *
 
 def is_winning():
     return False
@@ -150,8 +151,24 @@ def menu(exits, room_items, inv_items):
 def move(exits, direction):
     return rooms[exits[direction]]
 
-
+def test():
+score = 0
+for key in nums:
+    print (nums[key]["ques"])
+    print (nums[key]["choice"])
+    user_input = input("\n- ")
+    user_input = user_input.upper()
+    if user_input == (nums[key]["ans"]):
+        print ("Correct")
+        score = score + 1
+    else:
+        print("Incorrect")
+score = str(score)
+print ("Your Score is " + score + "/10")
+return score
+        
 # This is the entry point of our program
+test()
 def main():
 
     # Main game loop
