@@ -19,8 +19,29 @@ dialogue_kitchen = {
 
 dialogue_bathroom = {
     "name": "Bathrom",
-    "description":"ERROR DIALOGUE_SHOWER IS MISSING! You smell and you definitely need a shower",
-    "numbers": []#{"1":"dialogue_shower", "2":"dialogue_no_shower"},
+    "description":"You smell and you definitely need a shower",
+    "numbers": {"1":"dialogue_shower", "2":"dialogue_no_shower"},
+    "items": []
+}
+
+dialogue_shower = {
+    "name":"Shower",
+    "description" : "You've taken a shower and change your clothes, do you want to bru sh your teeth",
+    "numbers": "1":"dialogue_brush_teeth", "2":"dialogue_pracetemol"
+    "items": []
+}
+
+dialogue_brush_teeth = {
+    "name":"Shower",
+    "description" : "You've Brushed your teeth and you take paracetemol to help with headache",
+    "numbers": {"1":"dialogue_kitchen", "2":"dialogue_jason", "3":"dialogue_library"}
+    "items": []
+}
+
+dialogue_paracetemol = {
+    "name":"Shower",
+    "description" : "You've taken paracetemol to help with headache",
+    "numbers": {"1":"dialogue_kitchen", "2":"dialogue_jason", "3":"dialogue_library"}
     "items": []
 }
 
@@ -109,5 +130,8 @@ dialogue = {
     "dialogue_wait": dialogue_wait,
     "dialogue_stay": dialogue_stay,
     "dialogue_jason": dialogue_jason,
-    "dialogue_food": dialogue_food
+    "dialogue_food": dialogue_food,
+    "dialogue_paracetemol": dialogue_paracetemol,
+    "dialogue_brush_teeth":dialogue_brush_teeth,
+    "dialogue_shower":dialogue_shower
 }
