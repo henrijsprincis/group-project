@@ -19,8 +19,8 @@ dialogue_kitchen = {
 
 dialogue_bathroom = {
     "name": "Bathrom",
-    "description":"You smell and you definitely need a shower",
-    "numbers": {"1":"dialogue_shower", "2":"dialogue_no_shower"},
+    "description":"ERROR DIALOGUE_SHOWER IS MISSING! You smell and you definitely need a shower",
+    "numbers": []#{"1":"dialogue_shower", "2":"dialogue_no_shower"},
     "items": []
 }
 
@@ -46,7 +46,7 @@ dialogue_coffee = {
     "description":"This wiil boost your energy",
     "time": 5,
     "numbers": {"1": "dialogue_bathroom", "2": "dialogue_jason", "3": "dialogue_library"},
-    "items":[items_coffee]
+    "items":[item_coffee]
 }
 
 dialogue_breakfast = {
@@ -54,14 +54,14 @@ dialogue_breakfast = {
     "description":"You find a Python book in the cereal box. What a coincidence.",
     "numbers": {"1": "take_book", "2": "leave_book"},
     "time": 15,
-    "items":[items_book]
+    "items":[item_textbook]
 }
 
 dialogue_jason = {
-    "name": "Jason's Flat"
-    "description" : "You go to Jsons flat and find there is no answr when you knock on the door"
-    "numbers":{"1":"dialogue_wait", "2":"dialogue_library"}
-    "time":20
+    "name": "Jason's Flat",
+    "description" : "You go to Jsons flat and find there is no answr when you knock on the door",
+    "numbers":{"1":"dialogue_wait", "2":"dialogue_library"},
+    "time":20,
     "items": []
 }
 
@@ -70,7 +70,7 @@ dialogue_wait = {
     "description" : "You wait and knock again after 5 minutes and the door is answered, you enter the house and see your notes",
     "numbers":{"1":"take_notes", "2":"dialogue_stay", "3":"dialogue_library"},
     "time":5,
-    "items": [items_notes]
+    "items": [item_notes]
 }
 
 dialogue_stay = {
@@ -104,10 +104,10 @@ dialogue = {
     "dialogue_phone":dialogue_phone,
     "dialogue_jason_flat_through": dialogue_jason_flat_through,
     "dialogue_coffee": dialogue_coffee,
-    "dialogue_breakfast": dialogue_breakfast
-    "dialogue_library": dialogue_library
-    "dialogue_wait": dialogue_wait
-    "dialogue_stay": dialogue_stay
-    "dialogue_jason": dialogue_jason
-    "
+    "dialogue_breakfast": dialogue_breakfast,
+    "dialogue_library": dialogue_library,
+    "dialogue_wait": dialogue_wait,
+    "dialogue_stay": dialogue_stay,
+    "dialogue_jason": dialogue_jason,
+    "dialogue_food": dialogue_food
 }

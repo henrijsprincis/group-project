@@ -16,24 +16,24 @@ item_paracetemol = {
 }
 
 item_coffee = {
-    "id": "coffee"
+    "id": "coffee",
 
-    "name": "Had coffee"
+    "name": "Had coffee",
 
     "description": "Gives enerygy and makes you more alert"
 }
 
 item_notes = {
-    "id" : "notes"
+    "id" : "notes",
 
-    "name" : "Study Notes"
+    "name" : "Study Notes",
 
     "description": ""
-
+}
 item_key = {
-    "id":"key"
+    "id":"key",
 
-    "name": "Key"
+    "name": "Key",
 
     "description": "Found in the library"
 }
@@ -41,7 +41,7 @@ item_key = {
 items_all = {
     "coffee": item_coffee,
     "paracetemol": item_paracetemol,
-    "textbook": item_textbook
-    "notes": item_notes
+    "textbook": item_textbook,
+    "notes": item_notes,
     "key": item_key
 }

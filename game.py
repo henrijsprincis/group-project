@@ -1,13 +1,22 @@
 #!/usr/bin/python3 LOL
 
-from dialogue import *
+
 from player import *
 from items import *
 from gameparser import *
+from dialogue import *
 
 def is_winning():
     return False
-
+def change_dialogue(user_choice):
+    global current_narrative
+    global dialogue
+    current_narrative = dialogue[current_narrative["numbers"][str(user_choice)]]
+def list_of_items(items):
+    ret = ""
+    for item in items:
+        ret = ret + item["name"] + ".\n"
+    return ret
 def print_inventory_items(items):
     print ("You have " + list_of_items(items) + ".\n")
 
@@ -18,28 +27,26 @@ def print_dialogue(room):
     print("")
     
 def dialogue_option_leads_to(current_dialogue, numbers):
-    return rooms[exits[direction]]["name"]
+    return dialogue[current_dialogue["numbers"][number]]
 
-
-def print_menu(exits, room_items, inv_items):
+def print_menu(dialogue_options, room_items, inv_items):
     print("You can:")
     # Iterate over available exits
-    for direction in exits:
-        # Print the exit name and where it leads to
-        print_exit(direction, exit_leads_to(exits, direction))
+    for option in dialogue_options:
+        #current narrative numbers (Option = 1)
+        print("press " + str(option) + dialogue[dialogue_options[option]]["name"])
     for item in room_items:
-    	print("TAKE " + item["id"] + " to take " + item["name"])
+        print("TAKE " + item["id"] + " to take " + item["name"])
     for item in inv_items:
     	print("DROP " + item["id"] + " to drop " + item["name"])
     print("What do you want to do?")
 
 
-def is_valid_exit(exits, chosen_exit):
+def is_valid_dialogue(exits, chosen_exit):
     return chosen_exit in exits
 
 
 def execute_go(direction):
-    #print (current_room)
     global current_narrative
     try:
         current_narrative = move(current_narrative["numbers"], direction)
@@ -48,8 +55,6 @@ def execute_go(direction):
 
 
 def execute_take(item_id):
-    #Try to loop through the items in the current room
-    #try:
     i = 0
     total_sum_of_items = 0
     try:
@@ -61,18 +66,18 @@ def execute_take(item_id):
             if actual_item == element:
                 for myinvitem in inventory:
                     total_sum_of_items = total_sum_of_items + myinvitem["mass"]
-                if (total_sum_of_items + element["mass"] > 3.0):
-                    print ("You cannot take that")
-                    print ("It is too heavy :/")
-                    return
-                current_room["items"].pop(i)
+                #if (total_sum_of_items + element["mass"] > 3.0):
+                    #print ("You cannot take that")
+                    #print ("It is too heavy :/")
+                    #return
+                current_dialogue["items"].pop(i)
                 inventory.append(element)
                 print("you picked up "+ element["name"])
                 return
             i = i + 1
     except:
         print("")
-    print ("You cannot take that")
+        print ("You cannot take that")
     return
 
 def execute_drop(item_id):
@@ -80,10 +85,8 @@ def execute_drop(item_id):
     try:
         actual_item = items_all[item_id]
         for element in inventory:
-            #print (element)
-            #print (item_id)
             if actual_item == element:
-                current_room["items"].append(element)
+                current_narrative["items"].append(element)
                 inventory.pop(i)
             i = i + 1
     except:
@@ -91,29 +94,33 @@ def execute_drop(item_id):
     
 
 def execute_command(command):
+    user_choice = 0
     if 0 == len(command):
         return
+    try:
+        user_choice = int(command[0])
+        #print(str(user_choice) + " is what the user chose")
+        change_dialogue(user_choice)
+    except:
+        if command[0] == "go":
+            if len(command) > 1:
+                execute_go(command[1])
+            else:
+                print("Go where?")
+        elif command[0] == "take":
+            if len(command) > 1:
+                execute_take(command[1])
+            else:
+                print("Take what?")
 
-    if command[0] == "go":
-        if len(command) > 1:
-            execute_go(command[1])
+        elif command[0] == "drop":
+            if len(command) > 1:
+                execute_drop(command[1])
+            else:
+                print("Drop what?")
+        
         else:
-            print("Go where?")
-
-    elif command[0] == "take":
-        if len(command) > 1:
-            execute_take(command[1])
-        else:
-            print("Take what?")
-
-    elif command[0] == "drop":
-        if len(command) > 1:
-            execute_drop(command[1])
-        else:
-            print("Drop what?")
-
-    else:
-        print("This makes no sense.")
+            print("This makes no sense.")
 
 
 def menu(exits, room_items, inv_items):
@@ -142,11 +149,11 @@ def main():
         if is_winning() == True:
             print ("you win!!!")
             exit()
-        print_room(current_room)
+        print_dialogue(current_narrative)
         print_inventory_items(inventory)
 
         # Show the menu with possible actions and ask the player
-        command = menu(current_room["exits"], current_room["items"], inventory)
+        command = menu(current_narrative["numbers"], current_narrative["items"], inventory)
 
         # Execute the player's command
         execute_command(command)
