@@ -79,7 +79,7 @@ dialogue_coffee = {
     "name": "to make coffee",
     "description":"This will boost your energy",
     "time": 5,
-    "numbers": {"1": "hallway", "2": "dialogue_breakfast"},
+    "numbers": {"1": "dialogue_hallway", "2": "dialogue_breakfast"},
     "items":[item_coffee]
 }
 
