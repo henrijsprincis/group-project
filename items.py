@@ -6,10 +6,10 @@ item_textbook = {
     "description": "This textbook has everything you need to know about python.",
 }
 
-item_paracetemol = {
-    "id": "Paracetemol",
+item_paracetamol = {
+    "id": "Paracetamol",
 
-    "name": "Paracetemol",
+    "name": "Paracetamol",
 
     "description" : ""
 
@@ -47,7 +47,7 @@ item_cheat_notes = {
  
 items_all = {
     "coffee": item_coffee,
-    "paracetemol": item_paracetemol,
+    "paracetamol": item_paracetamol,
     "textbook": item_textbook,
     "notes": item_notes,
     "key": item_key,

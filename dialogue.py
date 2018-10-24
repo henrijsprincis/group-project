@@ -111,7 +111,7 @@ dialogue_bathroom = {
                       | |
 You take a quick look at yourself in the mirror, and come to the conclusion that you should really have a shower...""",
     "numbers": {"1":"dialogue_shower", "2":"dialogue_brush_teeth", "3":"dialogue_bedroom"},
-    "items": [item_paracetemol],
+    "items": [item_paracetamol],
     "time":0
 }
 
@@ -119,14 +119,14 @@ dialogue_shower = {
     "name":"to take a shower",
     "description" : "You shower quickly and half-dry your hair with a towel.",
     "numbers": {"1":"dialogue_brush_teeth", "2":"dialogue_bedroom"},
-    "items": [item_paracetemol]
+    "items": [item_paracetamol]
 }
 
 dialogue_brush_teeth = {
     "name":"to brush teeth",
     "description" : "You go to brush your teeth but find you've run out of toothpaste. Water will have to do for today.",
     "numbers": {"1":"dialogue_shower", "2":"dialogue_bedroom", "3":"take paracetamol"},
-    "items": [item_paracetemol],
+    "items": [item_paracetamol],
     "time":0
 }
 
