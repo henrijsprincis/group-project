@@ -125,8 +125,8 @@ dialogue_shower = {
 dialogue_brush_teeth = {
     "name":"to brush teeth",
     "description" : "You go to brush your teeth but find you've run out of toothpaste. Water will have to do for today.",
-    "numbers": {"1":"dialogue_shower", "2":"dialogue_paracetamol", "3":"dialogue_bedroom"},
-    "items": [],
+    "numbers": {"1":"dialogue_shower", "2":"dialogue_bedroom", "3":"take paracetamol"},
+    "items": [item_paracetemol],
     "time":0
 }
 
