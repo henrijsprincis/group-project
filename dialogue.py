@@ -21,28 +21,31 @@ dialogue_bathroom = {
     "name": "Bathrom",
     "description":"You smell and you definitely need a shower",
     "numbers": {"1":"dialogue_shower", "2":"dialogue_no_shower"},
-    "items": []
+    "items": [],
+    "time":0
 }
 
 dialogue_shower = {
     "name":"Shower",
     "description" : "You've taken a shower and change your clothes, do you want to bru sh your teeth",
-    "numbers": "1":"dialogue_brush_teeth", "2":"dialogue_pracetemol",
+    "numbers": {"1":"dialogue_brush_teeth", "2":"dialogue_pracetemol"},
     "items": []
 }
 
 dialogue_brush_teeth = {
     "name":"Shower",
     "description" : "You've Brushed your teeth and you take paracetemol to help with headache",
-    "numbers": {"1":"dialogue_kitchen", "2":"dialogue_jason", "3":"dialogue_library"}
-    "items": []
+    "numbers": {"1":"dialogue_kitchen", "2":"dialogue_jason", "3":"dialogue_library"},
+    "items": [],
+    "time":0
 }
 
 dialogue_paracetemol = {
     "name":"Shower",
     "description" : "You've taken paracetemol to help with headache",
     "numbers": {"1":"dialogue_kitchen", "2":"dialogue_jason", "3":"dialogue_library"},
-    "items": []
+    "items": [],
+    "time":0
 }
 
 dialogue_phone = {
@@ -73,7 +76,7 @@ dialogue_coffee = {
 dialogue_breakfast = {
     "name": "Make Breakfast",
     "description":"You find a Python book in the cereal box. What a coincidence.",
-    "numbers": {"1": "take_book", "2": "leave_book"},
+    "numbers": {"1": "take textbook"},
     "time": 15,
     "items":[item_textbook]
 }
@@ -89,7 +92,7 @@ dialogue_jason = {
 dialogue_wait = {
     "name": "Wait",
     "description" : "You wait and knock again after 5 minutes and the door is answered, you enter the house and see your notes",
-    "numbers":{"1":"take_notes", "2":"dialogue_stay", "3":"dialogue_library"},
+    "numbers":{"1":"take notes", "2":"dialogue_stay", "3":"dialogue_library"},
     "time":5,
     "items": [item_notes]
 }
@@ -106,14 +109,16 @@ dialogue_library = {
     "name":"Library",
     "description":"You meet Denise in the library and study for half an hour soon your stomach is rumbling and energy is low",
     "numbers":{"1":"dialogue_food", "2":"dialogue_no_food"},
-    "items": []
+    "items": [],
+    "time":0
 }
 
 dialogue_food = {
     "name":"Hallway",
     "description":"On your way from getting food yu notice a key on the floor",
     "numbers":{"1":"dialogue_investigate", "2":"dialogue_library"},
-    "items": []
+    "items": [],
+    "time":0
 }
 
 
