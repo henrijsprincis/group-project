@@ -3,7 +3,15 @@ from items import *
 dialogue_start = {
     "name": "Bedroom",
     "description":
-    """Opening your eyes, you feel dizzy. What happened last night? Wait a moment, it's Thursday already- you have your final exam today! You're going to be late if you don't hurry, but are you ready for the exam? First things first, you need to sort out this headache! """,
+    """
+.___________. __    __   _______    .___  ___.   ______   .______      .__   __.  __  .__   __.   _______         ___       _______ .___________. _______ .______      
+|           ||  |  |  | |   ____|   |   \/   |  /  __  \  |   _  \     |  \ |  | |  | |  \ |  |  /  _____|       /   \     |   ____||           ||   ____||   _  \     
+`---|  |----`|  |__|  | |  |__      |  \  /  | |  |  |  | |  |_)  |    |   \|  | |  | |   \|  | |  |  __        /  ^  \    |  |__   `---|  |----`|  |__   |  |_)  |    
+    |  |     |   __   | |   __|     |  |\/|  | |  |  |  | |      /     |  . `  | |  | |  . `  | |  | |_ |      /  /_\  \   |   __|      |  |     |   __|  |      /     
+    |  |     |  |  |  | |  |____    |  |  |  | |  `--'  | |  |\  \----.|  |\   | |  | |  |\   | |  |__| |     /  _____  \  |  |         |  |     |  |____ |  |\  \----.
+    |__|     |__|  |__| |_______|   |__|  |__|  \______/  | _| `._____||__| \__| |__| |__| \__|  \______|    /__/     \__\ |__|         |__|     |_______|| _| `._____|
+                                                                                                                                                                      
+Opening your eyes, you feel dizzy. What happened last night? Wait a moment, it's Thursday already- you have your final exam today! You're going to be late if you don't hurry, but are you ready for the exam? First things first, you need to sort out this headache! """,
     "numbers":{"1": "dialogue_bedroom"},
     "time" : 0,
     "items": []
