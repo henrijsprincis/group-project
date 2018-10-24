@@ -7,8 +7,7 @@ from gameparser import *
 from dialogue import *
 from test import *
 last_action_was_take = False
-def is_winning():
-    return False
+
 def test():
     score = 0
     for key in nums:
@@ -25,6 +24,12 @@ def test():
     print ("Your Score is " + score + "/15")
     return score
 
+def is_winning():
+    global current_narrative
+    if (current_narrative == dialogue_exam_start):
+        test()
+    else:
+        return False
 def change_dialogue(user_choice):
     global current_narrative
     global dialogue
@@ -129,6 +134,10 @@ def execute_command(command):
         return
     try:
         user_choice = int(command[0])
+        #global current_narrative
+        #print(current_narrative["numbers"][str(user_choice)])
+        #if (current_narrative["numbers"][str(user_choice)] == "EXAMSTART"):
+            #test()
         change_dialogue(user_choice)
         global last_action_was_take
         last_action_was_take = False

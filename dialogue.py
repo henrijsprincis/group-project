@@ -35,8 +35,6 @@ dialogue_bedroom = {
                  |           |  |              |
                  |____   ____|  |______________|
                       | |
-
-
     You stand up and spot your phone on the table nearby.""",
     "numbers":{"1": "dialogue_hallway", "2": "dialogue_phone", "3": "dialogue_bathroom"},
     "items": [],
@@ -270,7 +268,7 @@ dialogue_investigate = {
              |                     |
              |_____________________|
 You step into the office and are relieved to find it unoccupied. You sit at the computer, but something pops up on the screen. It seems to be a puzzle. Will you attempt it?""",
-    "numbers":{"yes":"dialogue_puzzle", "leave":"dialogue_stairwell"},
+    "numbers":{"1":"dialogue_puzzle", "2":"dialogue_stairwell"},
     "items": [],
     "time":0
 }
@@ -330,7 +328,7 @@ dialogue_examhall = {
              |          X          |
              |_____________________|
 Are you sure you are ready to do the exam?""",
-    "numbers":{"yes":"EXAMSTART", "no":"dialogue_stairwell"},
+    "numbers":{"1":"dialogue_exam_start", "2":"dialogue_stairwell"},
     "items": [],
     "time":0
 
@@ -366,6 +364,13 @@ The receptionist glances at you. Damn, it's always so cold in this building.""",
     "time":0
 
 }
+dialogue_exam_start = {
+    "name": "to start taking the exam. Please be sure you are readuy",
+    "description" : "You walk into the exam hall and notice that person you saw earlier today",
+    "numbers":{},
+    "time":0,
+    "items": []
+}
 
 dialogue = {
     "dialogue_start": dialogue_start,
@@ -388,5 +393,6 @@ dialogue = {
     "dialogue_reception":dialogue_reception,
     "dialogue_outside":dialogue_outside,
     "dialogue_continue":dialogue_continue,
-    "dialogue_hallway":dialogue_hallway
+    "dialogue_hallway":dialogue_hallway,
+    "dialogue_exam_start":dialogue_exam_start
 }
