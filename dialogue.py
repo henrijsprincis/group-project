@@ -11,7 +11,25 @@ dialogue_start = {
 
 dialogue_bedroom = {
     "name":"to look round your bedroom",
-    "description":"You stand up and spot your phone on the table nearby.",
+    "description":"""
+                 _____________    _____________
+                |             |__|             |
+                |   Bedroom    __   Bathroom   |
+                |      X      |  |             |
+                |_____   _____|  |_____________|
+                      | |
+                  ____| |____    ______________
+ _____________   |           |  |              |
+|             |  |           |  |              |
+|   Jason's   |__|           |__|              |
+|    Room      __   Hallway   __    Kitchen    |
+|_____________|  |           |  |              |
+                 |           |  |              |
+                 |____   ____|  |______________|
+                      | |
+
+
+    You stand up and spot your phone on the table nearby.""",
     "numbers":{"1": "dialogue_hallway", "2": "dialogue_phone", "3": "dialogue_bathroom"},
     "items": [],
     "time":0
@@ -20,7 +38,23 @@ dialogue_bedroom = {
 
 dialogue_hallway = {
     "name":"to go into your flats hallway",
-    "description":"You step into the narrow hallway connecting you and your faltmates rooms. You really need to clean this place.",
+    "description":"""
+                 _____________    _____________
+                |             |__|             |
+                |   Bedroom    __   Bathroom   |
+                |             |  |             |
+                |_____   _____|  |_____________|
+                      | |
+                  ____| |____    ______________
+ _____________   |           |  |              |
+|             |  |           |  |              |
+|   Jason's   |__|           |__|              |
+|    Room      __   Hallway   __    Kitchen    |
+|_____________|  |     X     |  |              |
+                 |           |  |              |
+                 |____   ____|  |______________|
+                      | |
+You step into the narrow hallway connecting you and your faltmates rooms. You really need to clean this place.""",
     "numbers":{"1": "dialogue_kitchen", "2": "dialogue_bedroom", "3": "dialogue_jason", "4": "dialogue_outside"},
     "items": [],
     "time":0
@@ -29,7 +63,23 @@ dialogue_hallway = {
 
 dialogue_kitchen = {
     "name": "to go the kitchen",
-    "description":"You go to the kitchen, some food should wake you up. A post-it left on your chair tells you that your friend Denise called round in the morning to say she’s studying at the library.",
+    "description":"""
+                 _____________    _____________
+                |             |__|             |
+                |   Bedroom    __   Bathroom   |
+                |             |  |             |
+                |_____   _____|  |_____________|
+                      | |
+                  ____| |____    ______________
+ _____________   |           |  |              |
+|             |  |           |  |              |
+|   Jason's   |__|           |__|              |
+|    Room      __   Hallway   __    Kitchen    |
+|_____________|  |           |  |      X       |
+                 |           |  |              |
+                 |____   ____|  |______________|
+                      | |
+You go to the kitchen, some food should wake you up. A post-it left on your chair tells you that your friend Denise called round in the morning to say she’s studying at the library.""",
     "time":5,
     "numbers": {"1": "dialogue_breakfast", "2": "dialogue_coffee"},
     "items": []
@@ -37,7 +87,23 @@ dialogue_kitchen = {
 
 dialogue_bathroom = {
     "name": "to go to the bathroom",
-    "description":"You take a quick look at yourself in the mirror, and come to the conclusion that you should really have a shower...",
+    "description":"""
+                 _____________    _____________
+                |             |__|             |
+                |   Bedroom    __   Bathroom   |
+                |             |  |      X      |
+                |_____   _____|  |_____________|
+                      | |
+                  ____| |____    ______________
+ _____________   |           |  |              |
+|             |  |           |  |              |
+|   Jason's   |__|           |__|              |
+|    Room      __   Hallway   __    Kitchen    |
+|_____________|  |           |  |              |
+                 |           |  |              |
+                 |____   ____|  |______________|
+                      | |
+You take a quick look at yourself in the mirror, and come to the conclusion that you should really have a shower...""",
     "numbers": {"1":"dialogue_shower", "2":"dialogue_brush_teeth", "3":"dialogue_bedroom"},
     "items": [item_paracetemol],
     "time":0
@@ -89,19 +155,28 @@ dialogue_breakfast = {
     "numbers": {"1": "dialogue_coffee", "2":"dialogue_hallway"},
     "time": 15,
     "items":[item_textbook]
-}
 
-dialogue_jason = {
-    "name": "to go to Jason's Flat",
-    "description" : "You go to Jsons flat and find there is no answer when you knock on the door",
-    "numbers":{"1":"dialogue_wait", "2":"dialogue_outside"},
-    "time":20,
-    "items": []
 }
 
 dialogue_wait = {
     "name": "to wait",
-    "description" : "You wait and knock again after 5 minutes and the door is answered, a grumpy Jason answers the door, and falls back into bed. You notice your notes on the floor.",
+    "description" : """
+                 _____________    _____________
+                |             |__|             |
+                |   Bedroom    __   Bathroom   |
+                |             |  |             |
+                |_____   _____|  |_____________|
+                      | |
+                  ____| |____    ______________
+ _____________   |           |  |              |
+|             |  |           |  |              |
+|   Jason's   |__|           |__|              |
+|    Room X    __   Hallway   __    Kitchen    |
+|_____________|  |           |  |              |
+                 |           |  |              |
+                 |____   ____|  |______________|
+                      | |
+You wait and knock again after 5 minutes and the door is answered, a grumpy Jason answers the door, and falls back into bed. You notice your notes on the floor.""",
     "numbers":{"1":"dialogue_hallway"},
     "time":5,
     "items": [item_notes]
@@ -118,7 +193,29 @@ dialogue_outside = {
 
 dialogue_library = {
     "name":"to go to the library",
-    "description":"You meet Denise in the library and study for half an hour soon your stomach is rumbling and energy is low. Do you have the time to grab something to eat?",
+    "description":"""
+            | |
+ ___________| |______
+|                    |
+|     Reception      |
+|                    |       _______________
+|_____   ____________|      |               |
+      | |                   |Kirill's Office|
+   ___| |___                |               |
+  |         |               |______   ______|
+  |         |                      | |      _________________
+  |         |______________________| |__   |                 |
+  |                                     |  |                 |
+  |             Stairwell               |__|                 |
+  |                                      __      Library     |
+  |____________________   ______________|  |        X        |
+                       | |                 |                 |
+              _________| |_________        |_________________|
+             |                     |
+             |      Exam Hall      |
+             |                     |
+             |_____________________|
+You meet Denise in the library and study for half an hour soon your stomach is rumbling and energy is low. Do you have the time to grab something to eat?""",
     "numbers":{"1":"dialogue_food", "2":"dialogue_continue"},
     "items": [],
     "time":0
@@ -142,7 +239,29 @@ dialogue_continue = {
 
 dialogue_investigate = {
     "name":"to investigate the office",
-    "description":"You step into the office and are relieved to find it unoccupied. You sit at the computer, but something pops up on the screen. It seems to be a puzzle. Will you attempt it?",
+    "description":"""
+            | |
+ ___________| |______
+|                    |
+|     Reception      |
+|                    |       _______________
+|_____   ____________|      |               |
+      | |                   |Kirill's Office|
+   ___| |___                |       X       |
+  |         |               |______   ______|
+  |         |                      | |      _________________
+  |         |______________________| |__   |                 |
+  |                                     |  |                 |
+  |             Stairwell               |__|                 |
+  |                                      __      Library     |
+  |____________________   ______________|  |                 |
+                       | |                 |                 |
+              _________| |_________        |_________________|
+             |                     |
+             |      Exam Hall      |
+             |                     |
+             |_____________________|
+You step into the office and are relieved to find it unoccupied. You sit at the computer, but something pops up on the screen. It seems to be a puzzle. Will you attempt it?""",
     "numbers":{"yes":"dialogue_puzzle", "leave":"dialogue_stairwell"},
     "items": [],
     "time":0
@@ -150,7 +269,29 @@ dialogue_investigate = {
 
 dialogue_stairwell = {
     "name":"to go to the stairwell",
-    "description":"The computerscience building is covered in posters, and smells strongly of coffee.",
+    "description":"""
+            | |
+ ___________| |______
+|                    |
+|     Reception      |
+|                    |       _______________
+|_____   ____________|      |               |
+      | |                   |Kirill's Office|
+   ___| |___                |               |
+  |         |               |______   ______|
+  |         |                      | |      _________________
+  |         |______________________| |__   |                 |
+  |                                     |  |                 |
+  |             Stairwell   X           |__|                 |
+  |                                      __      Library     |
+  |____________________   ______________|  |                 |
+                       | |                 |                 |
+              _________| |_________        |_________________|
+             |                     |
+             |      Exam Hall      |
+             |                     |
+             |_____________________|
+The computerscience building is covered in posters, and smells strongly of coffee.""",
     "numbers":{"1":"dialogue_library", "2":"dialogue_reception", "3":"dialogue_examhall"},
     "items": [],
     "time":0
@@ -158,7 +299,29 @@ dialogue_stairwell = {
 }
 dialogue_examhall = {
     "name":"to enter the exam hall",
-    "description":"Are you sure you are ready to do the exam?",
+    "description":"""
+            | |
+ ___________| |______
+|                    |
+|     Reception      |
+|                    |       _______________
+|_____   ____________|      |               |
+      | |                   |Kirill's Office|
+   ___| |___                |               |
+  |         |               |______   ______|
+  |         |                      | |      _________________
+  |         |______________________| |__   |                 |
+  |                                     |  |                 |
+  |             Stairwell               |__|                 |
+  |                                      __      Library     |
+  |____________________   ______________|  |                 |
+                       | |                 |                 |
+              _________| |_________        |_________________|
+             |                     |
+             |      Exam Hall      |
+             |          X          |
+             |_____________________|
+Are you sure you are ready to do the exam?""",
     "numbers":{"yes":"EXAMSTART", "no":"dialogue_stairwell"},
     "items": [],
     "time":0
@@ -167,7 +330,29 @@ dialogue_examhall = {
 
 dialogue_reception = {
     "name":"to go into reception",
-    "description":"The receptionist glances at you. Damn, it's always so cold in this building.",
+    "description":"""
+            | |
+ ___________| |______
+|                    |
+|     Reception      |
+|         X          |       _______________
+|_____   ____________|      |               |
+      | |                   |Kirill's Office|
+   ___| |___                |               |
+  |         |               |______   ______|
+  |         |                      | |      _________________
+  |         |______________________| |__   |                 |
+  |                                     |  |                 |
+  |             Stairwell               |__|                 |
+  |                                      __      Library     |
+  |____________________   ______________|  |                 |
+                       | |                 |                 |
+              _________| |_________        |_________________|
+             |                     |
+             |      Exam Hall      |
+             |                     |
+             |_____________________|
+The receptionist glances at you. Damn, it's always so cold in this building.""",
     "numbers":{"1":"dialogue_stairwell"},
     "items": [],
     "time":0
