@@ -3,7 +3,7 @@ from items import *
 dialogue_start = {
     "name": "Bedroom",
     "description":
-    """Opening your eyes, you feel dizzy. What happened last night? First things first, you need to sort out this headache! """,
+    """Opening your eyes, you feel dizzy. What happened last night? Wait a moment, it's Thursday already- you have your final exam today! You're going to be late if you don't hurry, but are you ready for the exam? First things first, you need to sort out this headache! """,
     "numbers":{"1": "dialogue_bedroom"},
     "time" : 0,
     "items": []
@@ -12,7 +12,16 @@ dialogue_start = {
 dialogue_bedroom = {
     "name":"to look round your bedroom",
     "description":"You stand up and spot your phone on the table nearby.",
-    "numbers":{"1": "dialogue_kitchen", "2": "dialogue_phone", "3": "dialogue_bathroom"},
+    "numbers":{"1": "dialogue_hallway", "2": "dialogue_phone", "3": "dialogue_bathroom"},
+    "items": [],
+    "time":0
+
+}
+
+dialogue_hallway = {
+    "name":"to go into your flats hallway",
+    "description":"You step into the narrow hallway connecting you and your faltmates rooms. You really need to clean this place.",
+    "numbers":{"1": "dialogue_kitchen", "2": "dialogue_bedroom", "3": "dialogue_jason", "4": "dialogue_outside"},
     "items": [],
     "time":0
 
@@ -20,7 +29,7 @@ dialogue_bedroom = {
 
 dialogue_kitchen = {
     "name": "to go the kitchen",
-    "description":"You go to the kitchen, you need something to wake you up.  You bump into your housemate.  You have quick chat about what happened last night.  He tells you that you were studying at Jason’s flat and Denise called round in the morning to say she’s studying at the library.",
+    "description":"You go to the kitchen, some food should wake you up. A post-it left on your chair tells you that your friend Denise called round in the morning to say she’s studying at the library.",
     "time":5,
     "numbers": {"1": "dialogue_breakfast", "2": "dialogue_coffee"},
     "items": []
@@ -28,41 +37,41 @@ dialogue_kitchen = {
 
 dialogue_bathroom = {
     "name": "to go to the bathroom",
-    "description":"You smell and you definitely need a shower",
-    "numbers": {"1":"dialogue_shower", "2":"take paracetamol"},
+    "description":"You take a quick look at yourself in the mirror, and come to the conclusion that you should really have a shower...",
+    "numbers": {"1":"dialogue_shower", "2":"dialogue_brush_teeth", "3":"dialogue_bedroom"},
     "items": [item_paracetemol],
     "time":0
 }
 
 dialogue_shower = {
     "name":"to take a shower",
-    "description" : "You've taken a shower and change your clothes, do you want to bru sh your teeth",
-    "numbers": {"1":"dialogue_brush_teeth", "2":"dialogue_pracetemol"},
-    "items": []
+    "description" : "You shower quickly and half-dry your hair with a towel.",
+    "numbers": {"1":"dialogue_brush_teeth", "2":"dialogue_bedroom"},
+    "items": [item_paracetemol]
 }
 
 dialogue_brush_teeth = {
     "name":"to brush teeth",
-    "description" : "You've Brushed your teeth and you take paracetemol to help with headache",
-    "numbers": {"1":"dialogue_kitchen", "2":"dialogue_jason", "3":"dialogue_library"},
+    "description" : "You go to brush your teeth but find you've run out of toothpaste. Water will have to do for today.",
+    "numbers": {"1":"dialogue_shower", "2":"dialogue_paracetamol", "3":"dialogue_bedroom"},
     "items": [],
     "time":0
 }
 
 dialogue_phone = {
     "name": "to reach for phone",
-    "description":"Reach your phone and start scrolling and You discover photos from the other night. Are those your study notes on the table at pre drinks?,Call Jason to find out what happened He tells you that you left your notes at pre drinks and they are still at his flat in Taly South. You feel exhausted but you need to get up.",
+    "description":"You reach for your phone, and notice that there is a photo of you making paper airplanes with your notes next door. Maybe your notes would help with the exam?",
     "time": 10,
-    "numbers": {"1": "dialogue_kitchen", "2": "dialogue_bathroom", "3":"dialogue_jason_flat_through"},
+    "numbers": {"1": "dialogue_hallway", "2": "dialogue_bathroom"},
     "items": []
     
 }
 
-dialogue_jason_flat_through = {
-    "name": "to bump housemate",
-    "description":"Throw on your clothes and leave to Jason’s flat. On your way out you bump into your housemate.You find out denise is at the library studying.",
+dialogue_jason = {
+    "name": "to knock on Jason's door.",
+    "description":"You knock and find no answer. Damnit Jason, wake up!",
     "time": 5,
-    "numbers": {"1": "dailogue_jason", "2": "dialogue_library"},
+    "numbers": {"1": "dailogue_wait", "2": "dialogue_hallway"},
     "items": []
 }
 
@@ -70,21 +79,21 @@ dialogue_coffee = {
     "name": "to make coffee",
     "description":"This will boost your energy",
     "time": 5,
-    "numbers": {"1": "dialogue_bathroom", "2": "dialogue_jason", "3": "dialogue_library", "4": "take coffee"},
+    "numbers": {"1": "hallway", "2": "dialogue_breakfast"},
     "items":[item_coffee]
 }
 
 dialogue_breakfast = {
     "name": "to make breakfast",
     "description":"You find a Python book in the cereal box. What a coincidence.",
-    "numbers": {"1": "take textbook", "2":"dialogue_bathroom","3":"dialogue_jason","4":"dialogue_library"},
+    "numbers": {"1": "dialogue_coffee", "2":"dialogue_hallway"},
     "time": 15,
     "items":[item_textbook]
 }
 
 dialogue_jason = {
     "name": "to go to Jason's Flat",
-    "description" : "You go to Jsons flat and find there is no answr when you knock on the door",
+    "description" : "You go to Jsons flat and find there is no answer when you knock on the door",
     "numbers":{"1":"dialogue_wait", "2":"dialogue_outside"},
     "time":20,
     "items": []
@@ -92,18 +101,11 @@ dialogue_jason = {
 
 dialogue_wait = {
     "name": "to wait",
-    "description" : "You wait and knock again after 5 minutes and the door is answered, you enter the house and see your notes",
-    "numbers":{"1":"take notes", "2":"dialogue_stay", "3":"dialogue_library"},
+    "description" : "You wait and knock again after 5 minutes and the door is answered, a grumpy Jason answers the door, and falls back into bed. You notice your notes on the floor.",
+    "numbers":{"1":"dialogue_hallway"},
     "time":5,
     "items": [item_notes]
-}
 
-dialogue_stay = {
-    "name": "to stay",
-    "description" : "This is taking for too long. You really don't have time.",
-    "numbers":{"1":"dialogue_outside"},
-    "time":60,
-    "items": []
 }
 
 dialogue_outside = {
@@ -179,12 +181,10 @@ dialogue = {
     "dialogue_bathroom": dialogue_bathroom,
     "dialogue_shower": dialogue_shower,
     "dialogue_phone":dialogue_phone,
-    "dialogue_jason_flat_through": dialogue_jason_flat_through,
     "dialogue_coffee": dialogue_coffee,
     "dialogue_breakfast": dialogue_breakfast,
     "dialogue_library": dialogue_library,
     "dialogue_wait": dialogue_wait,
-    "dialogue_stay": dialogue_stay,
     "dialogue_jason": dialogue_jason,
     "dialogue_food": dialogue_food,
     "dialogue_brush_teeth":dialogue_brush_teeth,
@@ -194,5 +194,6 @@ dialogue = {
     "dialogue_examhall":dialogue_examhall,
     "dialogue_reception":dialogue_reception,
     "dialogue_outside":dialogue_outside,
-    "dialogue_continue":dialogue_continue
+    "dialogue_continue":dialogue_continue,
+    "dialogue_hallway":dialogue_hallway
 }
