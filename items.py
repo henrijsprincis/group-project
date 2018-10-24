@@ -37,11 +37,19 @@ item_key = {
 
     "description": "Found in the library"
 }
+item_cheat_notes = {
+    "id":"cheat_notes",
+
+    "name": "cheat notes that make the test easier",
+
+    "description": ""
+}
  
 items_all = {
     "coffee": item_coffee,
     "paracetemol": item_paracetemol,
     "textbook": item_textbook,
     "notes": item_notes,
-    "key": item_key
+    "key": item_key,
+    "cheat_notes": item_cheat_notes
 }

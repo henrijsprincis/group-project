@@ -134,8 +134,8 @@ dialogue_phone = {
     "name": "to reach for phone",
     "description":"You reach for your phone, and notice that there is a photo of you making paper airplanes with your notes next door. Maybe your notes would help with the exam?",
     "time": 10,
-    "numbers": {"1": "dialogue_hallway", "2": "dialogue_bathroom"},
-    "items": []
+    "numbers": {"1": "dialogue_hallway", "2": "dialogue_bathroom", "3": "take notes"},
+    "items": [item_notes]
     
 }
 
@@ -143,7 +143,7 @@ dialogue_jason = {
     "name": "to knock on Jason's door.",
     "description":"You knock and find no answer. Damnit Jason, wake up!",
     "time": 5,
-    "numbers": {"1": "dailogue_wait", "2": "dialogue_hallway"},
+    "numbers": {"1": "dialogue_hallway","2": "dialogue_wait"},
     "items": []
 }
 
@@ -158,34 +158,9 @@ dialogue_coffee = {
 dialogue_breakfast = {
     "name": "to make breakfast",
     "description":"You find a Python book in the cereal box. What a coincidence.",
-    "numbers": {"1": "dialogue_coffee", "2":"dialogue_hallway"},
+    "numbers": {"1": "dialogue_coffee", "2":"dialogue_hallway", "3":"take textbook"},
     "time": 15,
     "items":[item_textbook]
-
-}
-
-dialogue_wait = {
-    "name": "to wait",
-    "description" : """
-                 _____________    _____________
-                |             |__|             |
-                |   Bedroom    __   Bathroom   |
-                |             |  |             |
-                |_____   _____|  |_____________|
-                      | |
-                  ____| |____    ______________
- _____________   |           |  |              |
-|             |  |           |  |              |
-|   Jason's   |__|           |__|              |
-|    Room X    __   Hallway   __    Kitchen    |
-|_____________|  |           |  |              |
-                 |           |  |              |
-                 |____   ____|  |______________|
-                      | |
-You wait and knock again after 5 minutes and the door is answered, a grumpy Jason answers the door, and falls back into bed. You notice your notes on the floor.""",
-    "numbers":{"1":"dialogue_hallway"},
-    "time":5,
-    "items": [item_notes]
 
 }
 
@@ -298,7 +273,7 @@ dialogue_stairwell = {
              |                     |
              |_____________________|
 The computerscience building is covered in posters, and smells strongly of coffee.""",
-    "numbers":{"1":"dialogue_library", "2":"dialogue_reception", "3":"dialogue_examhall"},
+    "numbers":{"1":"dialogue_library", "2":"dialogue_reception", "3":"dialogue_examhall", "4":"dialogue_puzzle"},
     "items": [],
     "time":0
 
@@ -371,7 +346,37 @@ dialogue_exam_start = {
     "time":0,
     "items": []
 }
+dialogue_puzzle = {
+    "name": "to hack Kirills computer",
+    "description" : "You put your black hat on and start hacking...",
+    "numbers":{},
+    "time":0,
+    "items": []
+}
+dialogue_wait = {
+    "name": "to wait",
+    "description" : """
+                 _____________    _____________
+                |             |__|             |
+                |   Bedroom    __   Bathroom   |
+                |             |  |             |
+                |_____   _____|  |_____________|
+                      | |
+                  ____| |____    ______________
+ _____________   |           |  |              |
+|             |  |           |  |              |
+|   Jason's   |__|           |__|              |
+|    Room X    __   Hallway   __    Kitchen    |
+|_____________|  |           |  |              |
+                 |           |  |              |
+                 |____   ____|  |______________|
+                      | |
+You wait and knock again after 5 minutes and the door is answered, a grumpy Jason answers the door, and falls back into bed. You notice your notes on the floor.""",
+    "numbers":{"1":"dialogue_hallway", "2":"take notes"},
+    "time":5,
+    "items": [item_notes]
 
+}
 dialogue = {
     "dialogue_start": dialogue_start,
     "dialogue_bedroom":dialogue_bedroom,
@@ -394,5 +399,6 @@ dialogue = {
     "dialogue_outside":dialogue_outside,
     "dialogue_continue":dialogue_continue,
     "dialogue_hallway":dialogue_hallway,
-    "dialogue_exam_start":dialogue_exam_start
+    "dialogue_exam_start":dialogue_exam_start,
+    "dialogue_puzzle": dialogue_puzzle
 }

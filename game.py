@@ -1,13 +1,13 @@
-#!/usr/bin/python3 LOL
-
-
+#The following code is adapted from Professo Kirill's game template 2
+#https://learningcentral.cf.ac.uk/bbcswebdav/pid-4830871-dt-content-rid-11885046_2/xid-11885046_2
 from player import *
 from items import *
 from gameparser import *
 from dialogue import *
 from test import *
+from passwordGuess import *
 last_action_was_take = False
-
+player_has_talked_to_jason = False
 def test():
     score = 0
     for key in nums:
@@ -26,22 +26,30 @@ def test():
 
 def is_winning():
     global current_narrative
+    global player_has_talked_to_jason
+    global dialogue
     if (current_narrative == dialogue_exam_start):
         test()
+    elif current_narrative == dialogue_puzzle:
+        hangman()
+    elif current_narrative == dialogue_wait:
+        player_has_talked_to_jason = True
+        dialogue["dialogue_wait"]["numbers"].pop("dialogue_wait", None)
     else:
         return False
 def change_dialogue(user_choice):
     global current_narrative
     global dialogue
     global current_narrative
+    global last_action_was_take
     #print(current_narrative["numbers"][str(user_choice)] + "THIS CODE RAN!!!")
     if(current_narrative["numbers"][str(user_choice)].find("take") != -1):
         user_input = current_narrative["numbers"][str(user_choice)]
         user_input = normalise_input(user_input)
-        print(user_input[1])
         execute_take(user_input[1])
         return
     current_narrative = dialogue[current_narrative["numbers"][str(user_choice)]]
+    last_action_was_take = False
 def list_of_items(items):
     ret = ""
     if items == []:
@@ -71,10 +79,8 @@ def print_menu(dialogue_options, room_items, inv_items):
         else:#the option contains the word take
             if(room_items != []):
                 print("press " + str(option) + " to " + dialogue_options[option])
-    for item in room_items:
-        print("TAKE " + item["id"] + " to take " + item["name"])
-    for item in inv_items:
-    	print("DROP " + item["id"] + " to drop " + item["name"])
+    #for item in room_items:
+        #print("TAKE " + item["id"] + " to take " + item["name"])
     print("What do you want to do?")
 
 
@@ -115,32 +121,14 @@ def execute_take(item_id):
         print ("You cannot take that")
     return
 
-def execute_drop(item_id):
-    i = 0
-    try:
-        actual_item = items_all[item_id]
-        for element in inventory:
-            if actual_item == element:
-                current_narrative["items"].append(element)
-                inventory.pop(i)
-            i = i + 1
-    except:
-        print("You cannot drop that")
-    
-
 def execute_command(command):
     user_choice = 0
     if 0 == len(command):
         return
     try:
-        user_choice = int(command[0])
-        #global current_narrative
-        #print(current_narrative["numbers"][str(user_choice)])
-        #if (current_narrative["numbers"][str(user_choice)] == "EXAMSTART"):
-            #test()
-        change_dialogue(user_choice)
         global last_action_was_take
-        last_action_was_take = False
+        user_choice = int(command[0])
+        change_dialogue(user_choice)
     except:
         if command[0] == "go":
             if len(command) > 1:
@@ -152,13 +140,6 @@ def execute_command(command):
                 execute_take(command[1])
             else:
                 print("Take what?")
-
-        elif command[0] == "drop":
-            if len(command) > 1:
-                execute_drop(command[1])
-            else:
-                print("Drop what?")
-        
         else:
             print("This makes no sense.")
 

@@ -34,6 +34,3 @@ def normalise_input(user_input):
     words = no_punct.split()
     words = filter_words(words, skip_words)
     return words
-    #
-    # COMPLETE ME!
-    #

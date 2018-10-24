@@ -1,0 +1,24 @@
+dialogue_wait = {
+    "name": "to wait",
+    "description" : """
+                 _____________    _____________
+                |             |__|             |
+                |   Bedroom    __   Bathroom   |
+                |             |  |             |
+                |_____   _____|  |_____________|
+                      | |
+                  ____| |____    ______________
+ _____________   |           |  |              |
+|             |  |           |  |              |
+|   Jason's   |__|           |__|              |
+|    Room X    __   Hallway   __    Kitchen    |
+|_____________|  |           |  |              |
+                 |           |  |              |
+                 |____   ____|  |______________|
+                      | |
+You wait and knock again after 5 minutes and the door is answered, a grumpy Jason answers the door, and falls back into bed. You notice your notes on the floor.""",
+    "numbers":{"1":"dialogue_hallway"},
+    "time":5,
+    "items": [item_notes]
+
+}
