@@ -12,6 +12,6 @@ num11 = {"ans" : "C", "ques" : "11. Which keyword is used to start a function in
 num12 = {"ans" : "B", "ques" : "12. What does this operator do? \n ** ", "choice": "\n A. Modulus \n B. Exponent \n C. Division \n D. Multiplication"} 
 num13 = {"ans" : "D", "ques" : "13. What is the comparison operator for showing if a value is not equal to?", "choice": "\n A. => \n B. > \n C. == \n D. !="} 
 num14 = {"ans" : "D", "ques" : "14. What statement gets a value from the command line?", "choice": "\n A. take \n B. command \n C. << \n D. input()"} 
-num15 = {"ans" : "B", "ques" : "15. What would this statement output? \n print len('abc') ", "choice": "\n A. abc \n B. 3 \n C. Error \n D. len('abc')"}
+num15 = {"ans" : "B", "ques" : "15. What would this statement output? \n print (len('abc')) ", "choice": "\n A. abc \n B. 3 \n C. Error \n D. len('abc')"}
 
 nums = {"1":num1, "2": num2, "3":num3, "4":num4, "5":num5, "6":num6, "7":num7, "8":num8, "9":num9, "10":num10, "11":num11, "12":num12, "13":num13, "14":num14, "15":num15}   
