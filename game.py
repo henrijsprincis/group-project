@@ -15,6 +15,13 @@ def check_inventory_for_cheats():
         if item == item_cheat_notes:
             cheats_in_inventory = True
     return cheats_in_inventory
+def check_inventory_for_study_notes():
+    global inventory
+    cheats_in_inventory = False
+    for item in inventory:
+        if item == item_notes:
+            cheats_in_inventory = True
+    return cheats_in_inventory
 def check_valid_user_input_test(user_input):
     possible_answers = ["A","B","C","D"]
     if user_input in possible_answers:
@@ -27,6 +34,8 @@ def test(cheat_notes_present):
     while(len(nums)>0):
         if(cheat_notes_present):
             print("You look at the cheat notes and see that the correct answer is " + nums[str(valid_execution_times+1)]["ans"])
+        if(check_inventory_for_study_notes()):
+            print("You remember your notes and see that the hint is '" + nums[str(valid_execution_times+1)]["hint"] + "'")
         print (nums[str(valid_execution_times+1)]["ques"])
         print (nums[str(valid_execution_times+1)]["choice"])
         user_input = input("\n- ").upper()
@@ -71,7 +80,10 @@ def is_winning():
         current_narrative = dialogue_stairwell
         dialogue_stairwell["numbers"].pop("4")
     elif current_narrative == dialogue_wait:
-        dialogue["dialogue_wait"]["numbers"].pop("2", None)
+        dialogue["dialogue_jason"]["numbers"].pop("2", None)
+    elif current_narrative == dialogue_coffee:
+        dialogue["dialogue_breakfast"]["numbers"].pop("3", None)
+        dialogue["dialogue_kitchen"]["numbers"].pop("2", None)
     else:
         return False
 def change_dialogue(user_choice):
