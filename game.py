@@ -5,9 +5,26 @@ from player import *
 from items import *
 from gameparser import *
 from dialogue import *
+from test import *
 last_action_was_take = False
 def is_winning():
     return False
+def test():
+    score = 0
+    for key in nums:
+        print (nums[key]["ques"])
+        print (nums[key]["choice"])
+        user_input = input("\n- ")
+        user_input = user_input.upper()
+        if user_input == (nums[key]["ans"]):
+            print ("Correct")
+            score = score + 1
+        else:
+            print("Incorrect")
+    score = str(score)
+    print ("Your Score is " + score + "/15")
+    return score
+
 def change_dialogue(user_choice):
     global current_narrative
     global dialogue
@@ -113,6 +130,8 @@ def execute_command(command):
     try:
         user_choice = int(command[0])
         change_dialogue(user_choice)
+        global last_action_was_take
+        last_action_was_take = False
     except:
         if command[0] == "go":
             if len(command) > 1:
