@@ -340,7 +340,7 @@ The receptionist glances at you. Damn, it's always so cold in this building.""",
 
 }
 dialogue_exam_start = {
-    "name": "to start taking the exam. Please be sure you are readuy",
+    "name": "to start taking the exam. Please be sure you are ready",
     "description" : "You walk into the exam hall and notice that person you saw earlier today",
     "numbers":{},
     "time":0,
