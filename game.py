@@ -21,10 +21,12 @@ def check_valid_user_input_test(user_input):
         return True
     else:
         return False
-def test():
+def test(cheat_notes_present):
     score = 0
     valid_execution_times = 0
     while(len(nums)>0):
+        if(cheat_notes_present):
+            print("You look at the cheat notes and see that the correct answer is " + nums[str(valid_execution_times+1)]["ans"])
         print (nums[str(valid_execution_times+1)]["ques"])
         print (nums[str(valid_execution_times+1)]["choice"])
         user_input = input("\n- ").upper()
@@ -48,14 +50,19 @@ def is_winning():
     global dialogue
     if (current_narrative == dialogue_exam_start):
         if check_inventory_for_cheats():
-            print("You have cheated the system and have found the dirtiest way to win. Do not be too proud")
-            sys.exit()
-        score = test()
+            print("You are lucky that you have a cheat sheet with you :). Without it who knows what the right answer would be")
+            score = test(True)
+            #sys.exit()
+        else:
+            score = test(False)
         if score > 10:
-            print("YOU WIN!!! CONGRATS! You are the smartest kid around")
+            if check_inventory_for_cheats():
+                print("You cheated to win. You beat the system, but did you really. The only reason why you were able to cheat was because you were smart enough to hack into kirill's computer. Cheating may be frowned upon in our modern society, but to a rational human being the social norms are nothing, but guidelines. Cheating will always remain a strategy to gain an edge, but the only question is? Was it worth the risk? Unfortunately, this game has come to an end, but you can check out other ending by playing me again without cheating :) !!!")
+                sys.exit()
+            print("YOU WIN!!! CONGRATS! Your indepth knowledge of python is very well appreciated and you are an excellent student. There comes a time in our lives where we must part ways. I am afraid that this is it for the game, unless you want to check out the other ending to the game (go to kirills room and hack his computer)")
             sys.exit()
         else:
-            print("Better luck next time! One should study harder for their tests")
+            print("Poor you. You failed the test and got kicked out of school. Depressed and sad, you turned to alcohol to wash away your problems. This ended your already short lifespan. The moral of the story is that in order to survive, you must either cheat or be intelligent. Don't worry though! You can play me again and see what happens if you cheat/answer correctly. Just make sure that no one is looking because that would be embarrassing!")
             sys.exit()
     elif current_narrative == dialogue_puzzle:
         global inventory
@@ -72,7 +79,6 @@ def change_dialogue(user_choice):
     global dialogue
     global current_narrative
     global last_action_was_take
-    #print(current_narrative["numbers"][str(user_choice)] + "THIS CODE RAN!!!")
     if(current_narrative["numbers"][str(user_choice)].find("take") != -1):
         user_input = current_narrative["numbers"][str(user_choice)]
         user_input = normalise_input(user_input)
