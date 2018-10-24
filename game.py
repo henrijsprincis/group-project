@@ -6,35 +6,51 @@ from gameparser import *
 from dialogue import *
 from test import *
 from passwordGuess import *
+import sys
 last_action_was_take = False
-player_has_talked_to_jason = False
+def check_valid_user_input_test(user_input):
+    possible_answers = ["A","B","C","D"]
+    if user_input in possible_answers:
+        return True
+    else:
+        return False
 def test():
     score = 0
-    for key in nums:
-        print (nums[key]["ques"])
-        print (nums[key]["choice"])
-        user_input = input("\n- ")
-        user_input = user_input.upper()
-        if user_input == (nums[key]["ans"]):
-            print ("Correct")
-            score = score + 1
+    valid_execution_times = 0
+    while(len(nums)>0):
+        print (nums[str(valid_execution_times+1)]["ques"])
+        print (nums[str(valid_execution_times+1)]["choice"])
+        user_input = input("\n- ").upper()
+        user_input_valid = check_valid_user_input_test(user_input)
+        if user_input_valid == True:
+            if user_input == (nums[str(valid_execution_times+1)]["ans"]):
+                print ("Correct")
+                score = score + 1
+            else:
+                print("Incorrect")
+            valid_execution_times = valid_execution_times + 1
+            nums.pop(str(valid_execution_times))
         else:
-            print("Incorrect")
+            print("please select A,B,C or D")
     score = str(score)
     print ("Your Score is " + score + "/15")
-    return score
+    return int(score)
 
 def is_winning():
     global current_narrative
-    global player_has_talked_to_jason
     global dialogue
     if (current_narrative == dialogue_exam_start):
-        test()
+        score = test()
+        if score > 10:
+            print("YOU WIN!!! CONGRATS! You are the smartest kid around")
+            sys.exit()
+        else:
+            print("Better luck next time! One should study harder for their tests")
+            sys.exit()
     elif current_narrative == dialogue_puzzle:
         hangman()
     elif current_narrative == dialogue_wait:
-        player_has_talked_to_jason = True
-        dialogue["dialogue_wait"]["numbers"].pop("dialogue_wait", None)
+        dialogue["dialogue_wait"]["numbers"].pop("2", None)
     else:
         return False
 def change_dialogue(user_choice):
