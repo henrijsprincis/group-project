@@ -11,7 +11,7 @@ dialogue_start = {
 
 dialogue_bedroom = {
     "name":"to look round your bedroom",
-    "description":"You step into the office and are relieved to find it unoccupied. You sit at the computer, but something pops up on the screen. It seems to be a puzzle. Will you attempt it?",
+    "description":"You stand up and spot your phone on the table nearby.",
     "numbers":{"1": "dialogue_kitchen", "2": "dialogue_phone", "3": "dialogue_bathroom"},
     "items": [],
     "time":0
@@ -68,9 +68,9 @@ dialogue_jason_flat_through = {
 
 dialogue_coffee = {
     "name": "to make coffee",
-    "description":"This wiil boost your energy",
+    "description":"This will boost your energy",
     "time": 5,
-    "numbers": {"1": "dialogue_bathroom", "2": "dialogue_jason", "3": "dialogue_library"},
+    "numbers": {"1": "dialogue_bathroom", "2": "dialogue_jason", "3": "dialogue_library", "4": "take coffee"},
     "items":[item_coffee]
 }
 
@@ -174,7 +174,7 @@ dialogue_reception = {
 
 dialogue = {
     "dialogue_start": dialogue_start,
-    "dialogue_bedroom":dislogue_bedroom,
+    "dialogue_bedroom":dialogue_bedroom,
     "dialogue_kitchen": dialogue_kitchen,
     "dialogue_bathroom": dialogue_bathroom,
     "dialogue_shower": dialogue_shower,
