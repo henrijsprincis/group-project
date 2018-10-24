@@ -3,15 +3,24 @@ from items import *
 dialogue_start = {
     "name": "Bedroom",
     "description":
-    """You wake up and a long night of heavy drinking is catching up on you. Have you just dreamt about Kirill? Confused, you look for something to hold on to. Your stomach is rambling, and a massive headache has made its appearance. Wait, are you even alive? More confused, you look through the window and you are kind of proud that you woke up early for once. It must be Kirill. """,
-    "numbers":{"1": "dialogue_kitchen", "2": "dialogue_phone", "3": "dialogue_bathroom"},
+    """Opening your eyes, you feel dizzy. What happened last night? First things first, you need to sort out this headache! """,
+    "numbers":{"1": "dialogue_bedroom"},
     "time" : 0,
     "items": []
 }
 
+dialogue_bedroom = {
+    "name":"to look round your bedroom",
+    "description":"You step into the office and are relieved to find it unoccupied. You sit at the computer, but something pops up on the screen. It seems to be a puzzle. Will you attempt it?",
+    "numbers":{"1": "dialogue_kitchen", "2": "dialogue_phone", "3": "dialogue_bathroom"},
+    "items": [],
+    "time":0
+
+}
+
 dialogue_kitchen = {
-    "name": "to go to the kitchen",
-    "description":"You Go to the kitchen,  you need something to wake you up .  You bump into your housemate.  You have quick chat about what happened last night.  He tells you that you were studying at Jason’s flat and Denise called round in the morning to say she’s studying at the library.",
+    "name": "to go the kitchen",
+    "description":"You go to the kitchen, you need something to wake you up.  You bump into your housemate.  You have quick chat about what happened last night.  He tells you that you were studying at Jason’s flat and Denise called round in the morning to say she’s studying at the library.",
     "time":5,
     "numbers": {"1": "dialogue_breakfast", "2": "dialogue_coffee"},
     "items": []
@@ -76,7 +85,7 @@ dialogue_breakfast = {
 dialogue_jason = {
     "name": "to go to Jason's Flat",
     "description" : "You go to Jsons flat and find there is no answr when you knock on the door",
-    "numbers":{"1":"dialogue_wait", "2":"dialogue_library"},
+    "numbers":{"1":"dialogue_wait", "2":"dialogue_outside"},
     "time":20,
     "items": []
 }
@@ -91,37 +100,81 @@ dialogue_wait = {
 
 dialogue_stay = {
     "name": "to stay",
-    "description" : "You wait and knock again after 5 minutes and the door is answered, you enter the house and see your notes",
-    "numbers":{"1":"dialogue_exam"},
+    "description" : "This is taking for too long. You really don't have time.",
+    "numbers":{"1":"dialogue_outside"},
+    "time":60,
+    "items": []
+}
+
+dialogue_outside = {
+    "name": "to leave the flat",
+    "description" : "You stumble towards the computer science building, head pounding all the way. You don't feel like doing this walk again for a while.",
+    "numbers":{"1":"dialogue_reception"},
     "time":60,
     "items": []
 }
 
 dialogue_library = {
     "name":"to go to the library",
-    "description":"You meet Denise in the library and study for half an hour soon your stomach is rumbling and energy is low",
-    "numbers":{"1":"dialogue_food"},
+    "description":"You meet Denise in the library and study for half an hour soon your stomach is rumbling and energy is low. Do you have the time to grab something to eat?",
+    "numbers":{"1":"dialogue_food", "2":"dialogue_continue"},
     "items": [],
     "time":0
 }
 
 dialogue_food = {
-    "name":"to go to the hallway",
-    "description":"On your way from getting food yu notice a key on the floor",
-    "numbers":{"1":"dialogue_investigate", "2":"dialogue_library"},
+    "name":"to go to the hallway and grab some food",
+    "description":"As you step back into the hallway, you notice Kirill's offfice door has been left ajar.",
+    "numbers":{"1":"dialogue_investigate", "2":"dialogue_stairwell"},
     "items": [],
     "time":0
 }
 
+dialogue_continue = {
+    "name": "to continue studying",
+    "description" : "You push yourself and continue studying for a little longer.",
+    "numbers":{"1":"dialogue_stairwell"},
+    "time":60,
+    "items": []
+}
+
 dialogue_investigate = {
-    "name":"to investagte a suspicious key",
-    "description":"You look at the key and you decide yayayayty",
-    "numbers":{"1":"dialogue_investigate", "2":"dialogue_library"},
+    "name":"to investigate the office",
+    "description":"You step into the office and are relieved to find it unoccupied. You sit at the computer, but something pops up on the screen. It seems to be a puzzle. Will you attempt it?",
+    "numbers":{"yes":"dialogue_puzzle", "leave":"dialogue_stairwell"},
     "items": [],
     "time":0
 }
+
+dialogue_stairwell = {
+    "name":"to go to the stairwell",
+    "description":"The computerscience building is covered in posters, and smells strongly of coffee.",
+    "numbers":{"1":"dialogue_library", "2":"dialogue_reception", "3":"dialogue_examhall"},
+    "items": [],
+    "time":0
+
+}
+dialogue_examhall = {
+    "name":"to enter the exam hall",
+    "description":"Are you sure you are ready to do the exam?",
+    "numbers":{"yes":"EXAMSTART", "no":"dialogue_stairwell"},
+    "items": [],
+    "time":0
+
+}
+
+dialogue_reception = {
+    "name":"to go into reception",
+    "description":"The receptionist glances at you. Damn, it's always so cold in this building.",
+    "numbers":{"1":"dialogue_stairwell"},
+    "items": [],
+    "time":0
+
+}
+
 dialogue = {
     "dialogue_start": dialogue_start,
+    "dialogue_bedroom":dislogue_bedroom,
     "dialogue_kitchen": dialogue_kitchen,
     "dialogue_bathroom": dialogue_bathroom,
     "dialogue_shower": dialogue_shower,
@@ -136,5 +189,10 @@ dialogue = {
     "dialogue_food": dialogue_food,
     "dialogue_brush_teeth":dialogue_brush_teeth,
     "dialogue_shower":dialogue_shower,
-    "dialogue_investigate":dialogue_investigate
+    "dialogue_investigate":dialogue_investigate,
+    "dialogue_stairwell":dialogue_stairwell,
+    "dialogue_examhall":dialogue_examhall,
+    "dialogue_reception":dialogue_reception,
+    "dialogue_outside":dialogue_outside,
+    "dialogue_continue":dialogue_continue
 }
