@@ -29,6 +29,7 @@ def hangman():
 you to take a memory dump. Unfortunately, while transmiting the memory over netcat it has become scrambled. You have worked out the length
 and what letters the password contains, but you do not know the right order. You can check the order of the letters by guessing""")
     while guesses_remaining > 0:
+        
         print("You have " + str(guesses_remaining) + " guesses remaining")
         print ("The mixed order password is'" +randomize_password(password) + "'")
         print ("the length of the word is " + str(len(password)))
@@ -39,15 +40,17 @@ and what letters the password contains, but you do not know the right order. You
             try:
                 os.system('cls')#clear screen
                 os.system('color 04')#make the cmd color green
-                print("You win! Thank you for playing")
+                print("You get the answers to the test! Now the test should be a piece of cake!")
                 time.sleep(4)
                 os.system('color 07')#switch the color back to white
-                sys.exit()
+                return
+                #sys.exit()
             except:
                 sys.exit()
                 pass
         else:
             guesses_remaining = guesses_remaining -1
+            number_of_correct_letters = 0
             try:
                 os.system('color 04')#make the cmd color red
                 print("WRONG!!!")
@@ -57,3 +60,4 @@ and what letters the password contains, but you do not know the right order. You
             except:
                 pass
     print("You enter the password wrong too many times and kirill has caught you... He is so upset with you that he expelled you")
+    sys.exit()

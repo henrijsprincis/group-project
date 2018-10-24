@@ -8,6 +8,13 @@ from test import *
 from passwordGuess import *
 import sys
 last_action_was_take = False
+def check_inventory_for_cheats():
+    global inventory
+    cheats_in_inventory = False
+    for item in inventory:
+        if item == item_cheat_notes:
+            cheats_in_inventory = True
+    return cheats_in_inventory
 def check_valid_user_input_test(user_input):
     possible_answers = ["A","B","C","D"]
     if user_input in possible_answers:
@@ -40,6 +47,9 @@ def is_winning():
     global current_narrative
     global dialogue
     if (current_narrative == dialogue_exam_start):
+        if check_inventory_for_cheats():
+            print("You have cheated the system and have found the dirtiest way to win. Do not be too proud")
+            sys.exit()
         score = test()
         if score > 10:
             print("YOU WIN!!! CONGRATS! You are the smartest kid around")
@@ -48,7 +58,11 @@ def is_winning():
             print("Better luck next time! One should study harder for their tests")
             sys.exit()
     elif current_narrative == dialogue_puzzle:
+        global inventory
         hangman()
+        inventory.append(item_cheat_notes)
+        current_narrative = dialogue_stairwell
+        dialogue_stairwell["numbers"].pop("4")
     elif current_narrative == dialogue_wait:
         dialogue["dialogue_wait"]["numbers"].pop("2", None)
     else:
