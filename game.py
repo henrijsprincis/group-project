@@ -8,6 +8,7 @@ from test import *
 from passwordGuess import *
 import sys
 last_action_was_take = False
+user_choices= open("player_choices.txt","a")
 def check_inventory_for_cheats():
     global inventory
     cheats_in_inventory = False
@@ -67,11 +68,17 @@ def is_winning():
         if score > 10:
             if check_inventory_for_cheats():
                 print("You cheated to win. You beat the system, but did you really. The only reason why you were able to cheat was because you were smart enough to hack into kirill's computer. Cheating may be frowned upon in our modern society, but to a rational human being the social norms are nothing, but guidelines. Cheating will always remain a strategy to gain an edge, but the only question is? Was it worth the risk? Unfortunately, this game has come to an end, but you can check out other ending by playing me again without cheating :) !!!")
+                user_choices.write("The user chose to cheat and won the game because of it\n")
+                user_choices.close()
                 sys.exit()
             print("YOU WIN!!! CONGRATS! Your indepth knowledge of python is very well appreciated and you are an excellent student. There comes a time in our lives where we must part ways. I am afraid that this is it for the game, unless you want to check out the other ending to the game (go to kirills room and hack his computer)")
+            user_choices.write("The user won the game without cheating\n")
+            user_choices.close()
             sys.exit()
         else:
             print("Poor you. You failed the test and got kicked out of school. Depressed and sad, you turned to alcohol to wash away your problems. This ended your already short lifespan. The moral of the story is that in order to survive, you must either cheat or be intelligent. Don't worry though! You can play me again and see what happens if you cheat/answer correctly. Just make sure that no one is looking because that would be embarrassing!")
+            user_choices.write("The user lost the game\n")
+            user_choices.close()
             sys.exit()
     elif current_narrative == dialogue_puzzle:
         global inventory
