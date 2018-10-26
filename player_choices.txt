@@ -1,1 +1,2 @@
 The user lost the game
+The user chose to cheat and won the game because of it

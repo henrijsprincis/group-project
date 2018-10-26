@@ -39,9 +39,9 @@ and what letters the password contains, but you do not know the right order. You
         if(number_of_correct_letters == len(password)):
             try:
                 os.system('cls')#clear screen
-                os.system('color 04')#make the cmd color green
+                os.system('color 02')#make the cmd color green
                 print("You get the answers to the test! Now the test should be a piece of cake!")
-                time.sleep(4)
+                time.sleep(2)
                 os.system('color 07')#switch the color back to white
                 return
                 #sys.exit()
@@ -54,10 +54,17 @@ and what letters the password contains, but you do not know the right order. You
             try:
                 os.system('color 04')#make the cmd color red
                 print("WRONG!!!")
-                time.sleep(1)
+                time.sleep(5)
                 os.system('color 07')#switch the color back to white
                 os.system('cls')
             except:
                 pass
-    print("You enter the password wrong too many times and kirill has caught you... He is so upset with you that he expelled you")
+    print("You enter the password wrong too many times and kirill has caught you... He is so upset with you that he makes the decision to expell you! Check out other endings by guessing the password 'incorrect' or taking the exam without hacking Kirill's password")
+    try:
+        a= open("player_choices.txt","a")
+        a.write("The player chose to cheat and got caught!")
+        a.close()
+    except:
+        pass
+    time.sleep(5)
     sys.exit()

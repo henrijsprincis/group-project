@@ -60,7 +60,7 @@ dialogue_hallway = {
                  |           |  |              |
                  |____   ____|  |______________|
                       | |
-You step into the narrow hallway connecting you and your faltmates rooms. You really need to clean this place.""",
+You step into the narrow hallway connecting you and your faltmates rooms. You really need to clean this place. To progress further leave flat, but once you do, you can never come back""",
     "numbers":{"1": "dialogue_kitchen", "2": "dialogue_bedroom", "3": "dialogue_jason", "4": "dialogue_outside"},
     "items": [],
     "time":0
