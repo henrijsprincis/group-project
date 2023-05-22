@@ -7,3 +7,4 @@ The Morning After is a text based adventure game developed in Python for first y
 1. Open CMD
 2. python game.py
 
+![image](https://github.com/henrijsprincis/group-project/assets/38922533/fcaa763e-f196-4f57-82a4-65178935fe69)
